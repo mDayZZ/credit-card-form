@@ -1,0 +1,436 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url("./fonts/Montserrat-ExtraLight.woff2");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url("./fonts/Montserrat-Light.woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url("./fonts/Montserrat-Medium.woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url("./fonts/Montserrat-SemiBold.woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+body * {
+    box-sizing: border-box;
+    transition-duration: 0.2s;
+
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+
+body {
+    /*color: white;*/
+    font-family: 'Montserrat', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100svh;
+    background-color: #f5f5f5;
+}
+
+
+.section {
+    /*outline: 1px solid red;*/
+    padding-inline: 10px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(24px, 4.5vw,48px);
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+
+.card {
+    margin: 0 auto;
+    max-width: 700px;
+    min-height: 300px;
+    padding: 50px 50px 0px;
+    border-radius: 14px;
+    background-color: #ffffff;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 10px 10px 5px #8d8d8d;
+}
+
+/*.card__inner {*/
+/*    padding-inline: 10px;*/
+/*}*/
+.card__logo {
+    margin-bottom: 40px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px #a1a1a1;
+    animation-duration: 0.2s; /* длительность анимации */
+    animation-timing-function: ease-out; /* функция времени */
+    opacity: 0;
+    min-height: 57px;
+}
+
+.hidden {
+    animation-name: fadeOut; /* использование ключевого состояния для исчезновения */
+    animation-fill-mode: forwards; /* сохраняем состояние после завершения анимации */
+}
+
+.visible {
+    animation-name: fadeIn; /* использование ключевого состояния для появления */
+    animation-fill-mode: forwards; /* сохраняем состояние после завершения анимации */
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.card__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.card__label {
+    display: block;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 5px;
+
+
+}
+
+.card__low-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.low-side__left-side {
+    flex-grow: 1;
+}
+
+
+
+.low-side__right-side {
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    gap: 10px;
+    /*white-space: nowrap;*/
+    flex-wrap: wrap;
+
+}
+
+.card__input {
+    width: 100%;
+    box-shadow: inset 0px 0px 2px 1px #ccc9c9;
+    /*border: 1px solid #ccc9c9;*/
+    /*background-color: #f6f6f6;*/
+    border: none;
+    border-radius: 3px;
+    padding: 10px 10px;
+
+    font-family: Montserrat, serif;
+    font-weight: 500;
+    font-size: 20px;
+    /*min-width: 200px;*/
+
+}
+
+.card__input::placeholder {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.card__input--not-valid:focus {
+    /*outline: 1px solid #ff5d5d;*/
+    outline: none;
+    box-shadow: 0px 0px 5px 2px #e37474;
+
+}
+
+.card__input--valid:focus {
+    outline: 2px solid #43be53;
+    /*outline: none;*/
+    box-shadow: 0px 0px 5px 2px #77cb85;
+
+}
+
+.low-side__right-side .card__input {
+    max-width: 100px;
+    min-width: 100px;
+}
+
+.low-side__right-side .card__group {
+    text-align: left;
+}
+
+#card__cvv-input {
+    font-weight: 600;
+}
+
+.card__action {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+}
+
+#card__status {
+    color: red;
+}
+
+.button {
+    height: 50px;
+
+    min-width: 170px;
+    justify-self: right;
+    background-color: white;
+    border: none;
+    box-shadow: 0 1px 3px 0 #545454;
+    font-family: Montserrat, serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.card__button {
+    margin-block: 50px;
+}
+
+.button:hover {
+    background-color: #f5f5f5;
+}
+
+.button:active {
+    transition-duration: 0s;
+    background-color: #d7d7d7;
+}
+
+
+.overlay {
+    display: flex; /* Скрываем overlay по умолчанию */
+    opacity: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: showOverlay 0.3s ease-in;
+}
+
+.successfullyOverlay {
+    display: flex; /* Скрываем overlay по умолчанию */
+    opacity: 100%;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 120px;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(224, 224, 224);
+    z-index: 999;
+
+    animation: showSuccessOverlay 0.8s ease-out forwards;
+}
+
+.successfullyOverlay::before {
+    content: '';
+    display: flex; /* Скрываем overlay по умолчанию */
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(182, 40, 40);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: showSuccessOverlay 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.successfullyOverlay::after {
+    content: '';
+    display: flex; /* Скрываем overlay по умолчанию */
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(238, 238, 238);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    animation: showSuccessOverlay 0.8s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.successLogo {
+    position: relative;
+    z-index: 1005;
+    opacity: 0;
+    animation: successLogo 0.8s ease-in-out forwards;
+    animation-delay: 1.1s;
+    transform-origin: center center;
+}
+
+.success__checkmark {
+    width: 30px;
+    height: 60px;
+    border-bottom: 5px solid green;
+    border-right: 5px solid green;
+    transform: rotate(45deg) translate(-40px, -20px);
+    display: flex;
+    position: absolute;
+    z-index: 1004;
+}
+
+.success__round {
+    position: absolute;
+    /*top: calc(50% - 35px);*/
+    /*left: calc(50% - 60px);*/
+    top: 50%;
+    left: 50%;
+    z-index: 1003;
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.success__title {
+    opacity: 0;
+    z-index: 1004;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 1.1s;
+
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes showOverlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes showSuccessOverlay {
+    from {
+        opacity: 75%;
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes successLogo {
+    from {
+        opacity: 0;
+        transform: rotate(0deg);
+        transform: scale(0%);
+    }
+
+    to {
+        opacity: 100%;
+        transform: rotate(360deg);
+        transform: scale(100%);
+    }
+
+}
+
+
+@media (max-width: 767px) {
+    .card__form {
+        row-gap: 10px;
+    }
+
+    .card__logo {
+        margin-bottom: 20px;
+    }
+
+    .card__action {
+        column-gap: 0px;
+    }
+
+    .card__button {
+        margin-block: 20px;
+    }
+
+    .card__input {
+
+    }
+}

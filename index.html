@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>BuySeller</title>
+</head>
+<body>
+    <main class="main">
+        <section class="section">
+            <h2 class="section-title">Введите карту</h2>
+            <div class="card">
+                <div class="card__inner">
+                    <img
+                            src="./images/logo-empty.png"
+                            alt="card_logo"
+                            class="card__logo"
+                            id="card_logo"
+
+                            height="57"
+
+                    >
+                    <form id="card-form" class="card__form">
+                        <div class="card__group">
+                            <label class="card__label" for="card__number-input">Номер Карты</label>
+                            <input name="card_number"
+                                   id="card__number-input"
+                                   class="card__input"
+                                   type="text"
+                                   pattern=".{19}"
+                                   maxlength="19"
+                                   placeholder="XXXX XXXX XXXX XXXX"
+                                   required
+                            >
+                        </div>
+
+                        <div class="card__low-side">
+                            <div class="low-side__left-side">
+                                <div class="card__group">
+                                    <label class="card__label" for="card__holder-input">Держатель карты</label>
+                                    <input name="card_holder"
+                                           id="card__holder-input"
+                                           class="card__input"
+                                           type="text"
+                                           placeholder="CARDHOLDER NAME"
+                                           required
+                                    >
+                                </div>
+
+                            </div>
+                            <div class="low-side__right-side">
+                                <div class="card__group">
+                                    <label class="card__label" for="card__exp-date-input">Срок действия</label>
+                                    <input name="card_expDate"
+                                           id="card__exp-date-input"
+                                           class="card__input"
+                                           type="text"
+                                           maxlength="5"
+                                           placeholder="MM/YY"
+                                           required
+                                    >
+                                </div>
+                                <div class="card__group">
+                                    <label class="card__label" for="card__cvv-input">CVV</label>
+                                    <input name="card_cvv"
+                                           id="card__cvv-input"
+                                           class="card__input"
+                                           type="password"
+                                           maxlength="3"
+                                           required
+                                    >
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="card__action">
+                            <p hidden id="card__status">Ошибка</p>
+                            <button type="button" class="button card__button" onclick="sendData()" >Оплатить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+        
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
