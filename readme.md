@@ -10,6 +10,9 @@ This project is a practice implementation of a credit card submission form. It a
 - Simulated server request for form submission
 - Loading and success animations
 
+## Try it out
+https://mdayzz.github.io/credit-card-form/
+
 ## Technologies and Tools Used
 
 - **HTML5**: For structuring the content
