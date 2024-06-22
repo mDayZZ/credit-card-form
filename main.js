@@ -57,7 +57,7 @@ const sendData = () => {
         const jsonData = formDataToJson(formData)
         console.log(jsonData)
 
-        akaFetch()
+        akaFetch(jsonData)
             .then(response => {
                 console.log(response)
                 createSuccessfullyOverlayElement()
