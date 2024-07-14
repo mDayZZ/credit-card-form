@@ -7,7 +7,7 @@ const cardLogo = document.querySelector('#card_logo')
 const cardLogoAnimationTime = window.getComputedStyle(cardLogo).animationDuration.replace(/[ms]/g,'')
 const dateNow = new Date(Date.now())
 const yearNow = dateNow.getFullYear()
-const monthNow = dateNow.getMonth()
+const monthNow = dateNow.getMonth() + 1
 
 
 let cardNumberValid = false;
@@ -143,11 +143,33 @@ cardExpDateInput.addEventListener('input', function (event) {
     const selectionEnd = this.selectionEnd;
     let monthValid = false;
     let yearValid = false;
+    let isYearNow = false;
     value = value.replace(/\D/g, '')
     value = value.replace(/(\d{2})(?=\d)/g, '$1/')
+    if (value.length === 5) {
+        const year = +value.slice(3,5)
+        if (year < +String(yearNow).slice(2,4)) {
+            yearValid = false
+            isYearNow = false
+            this.setCustomValidity('Неправильный год')
+            this.reportValidity()
+            console.log('badYear')
+        }
+        else if (year === +String(yearNow).slice(2,4)) {
+            isYearNow = true;
+            yearValid = true;
+        }
+
+
+        else {
+            yearValid = true;
+        }
+    }
+    else isYearNow = false;
+
     if (value.length > 1) {
         const month = +value.slice(0,2)
-        if (month > 12 || month < monthNow) {
+        if (month < 1 || month > 12 || (month < monthNow && isYearNow === true)) {
             this.setCustomValidity('Неправильный месяц')
             this.reportValidity()
             monthValid = false;
@@ -156,17 +178,10 @@ cardExpDateInput.addEventListener('input', function (event) {
             this.setCustomValidity('')
         }
     }
-    if (value.length === 5) {
-        const year = value.slice(3,5)
-        if (year < +String(yearNow).slice(2,4)) {
-            yearValid = false
-            this.setCustomValidity('Неправильный год')
-            this.reportValidity()
-            console.log('badYear')
-        } else {
-            yearValid = true;
-        }
-    }
+
+
+    console.log('now:', monthNow, yearNow, 'isYearNow:', isYearNow)
+    console.log('valid month/year', monthValid, yearValid)
 
     if (monthValid && yearValid) {
         this.classList.remove('card__input--not-valid')
