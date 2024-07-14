@@ -68,6 +68,6 @@ https://mdayzz.github.io/credit-card-form/
 
 ## Contact
 
-If you have any questions or feedback, feel free to contact me at [dev.seregin.m.v@ya.ru](mailto:dev.seregin.m.v@ya.ru)
+If you have any questions or feedback, feel free to contact me at [maxdayzzoff@gmail.com](mailto:maxdayzzoff@gmail.com)
 
 ---
